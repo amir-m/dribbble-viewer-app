@@ -19,6 +19,10 @@
 		2969BA021891C1E200BE43A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2969B9EA1891C1E200BE43A7 /* UIKit.framework */; };
 		2969BA0A1891C1E200BE43A7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2969BA081891C1E200BE43A7 /* InfoPlist.strings */; };
 		2969BA0C1891C1E200BE43A7 /* DribbbleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2969BA0B1891C1E200BE43A7 /* DribbbleTests.m */; };
+		2969BA161891C26700BE43A7 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2969BA151891C26700BE43A7 /* Storyboard.storyboard */; };
+		2969BA191891C42A00BE43A7 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2969BA181891C42A00BE43A7 /* TableViewController.m */; };
+		2969BA1C1891C73700BE43A7 /* DribbbleShot.m in Sources */ = {isa = PBXBuildFile; fileRef = 2969BA1B1891C73700BE43A7 /* DribbbleShot.m */; };
+		2969BA1F1891D6A900BE43A7 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2969BA1E1891D6A900BE43A7 /* WebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,13 @@
 		2969BA071891C1E200BE43A7 /* DribbbleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DribbbleTests-Info.plist"; sourceTree = "<group>"; };
 		2969BA091891C1E200BE43A7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2969BA0B1891C1E200BE43A7 /* DribbbleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DribbbleTests.m; sourceTree = "<group>"; };
+		2969BA151891C26700BE43A7 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		2969BA171891C42A00BE43A7 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		2969BA181891C42A00BE43A7 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		2969BA1A1891C73700BE43A7 /* DribbbleShot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DribbbleShot.h; sourceTree = "<group>"; };
+		2969BA1B1891C73700BE43A7 /* DribbbleShot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DribbbleShot.m; sourceTree = "<group>"; };
+		2969BA1D1891D6A900BE43A7 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		2969BA1E1891D6A900BE43A7 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +118,15 @@
 		2969B9EC1891C1E200BE43A7 /* Dribbble */ = {
 			isa = PBXGroup;
 			children = (
+				2969BA151891C26700BE43A7 /* Storyboard.storyboard */,
 				2969B9F51891C1E200BE43A7 /* AppDelegate.h */,
 				2969B9F61891C1E200BE43A7 /* AppDelegate.m */,
+				2969BA171891C42A00BE43A7 /* TableViewController.h */,
+				2969BA1A1891C73700BE43A7 /* DribbbleShot.h */,
+				2969BA1D1891D6A900BE43A7 /* WebViewController.h */,
+				2969BA181891C42A00BE43A7 /* TableViewController.m */,
+				2969BA1B1891C73700BE43A7 /* DribbbleShot.m */,
+				2969BA1E1891D6A900BE43A7 /* WebViewController.m */,
 				2969B9F81891C1E200BE43A7 /* Images.xcassets */,
 				2969B9ED1891C1E200BE43A7 /* Supporting Files */,
 			);
@@ -221,6 +239,7 @@
 			files = (
 				2969B9F11891C1E200BE43A7 /* InfoPlist.strings in Resources */,
 				2969B9F91891C1E200BE43A7 /* Images.xcassets in Resources */,
+				2969BA161891C26700BE43A7 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +259,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2969B9F71891C1E200BE43A7 /* AppDelegate.m in Sources */,
+				2969BA1F1891D6A900BE43A7 /* WebViewController.m in Sources */,
+				2969BA1C1891C73700BE43A7 /* DribbbleShot.m in Sources */,
+				2969BA191891C42A00BE43A7 /* TableViewController.m in Sources */,
 				2969B9F31891C1E200BE43A7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

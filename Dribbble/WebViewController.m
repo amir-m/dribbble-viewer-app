@@ -26,7 +26,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:self.ShotURL];
+    [self.webView loadRequest:request];
 }
 
 - (void)didReceiveMemoryWarning

@@ -7,6 +7,8 @@
 //
 
 #import "TableViewController.h"
+#import "DribbbleShot.h"
+#import "WebViewController.h"
 
 @interface TableViewController ()
 
@@ -26,12 +28,36 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSURL *everyOneShotsURL = [NSURL URLWithString:
+        @"http://api.dribbble.com/shots/everyone"];
+    
+    NSData *everyOneShotsData = [NSData dataWithContentsOfURL:everyOneShotsURL];
+    
+    NSError *error = nil;
+    NSDictionary *everyOneShotsDictionary = [NSJSONSerialization JSONObjectWithData:everyOneShotsData options:0 error:&error];
+    
+    NSArray *shotsArray = [everyOneShotsDictionary objectForKey:@"shots"];
+    
+    self.dribbbleShotsArray = [NSMutableArray array];
+    
+    
+    for (NSDictionary *shot in shotsArray) {
+        
+        DribbbleShot *d = [DribbbleShot dribbbleShotWithTitle:
+                           [shot objectForKey:@"title"]];
+        
+        d.height = (int) [shot objectForKey:@"height"];
+        d.width = (int) [shot objectForKey:@"width"];
+        d.likes_count = (int) [shot objectForKey:@"likes_count"];
+        d.comments_count = (int) [shot objectForKey:@"comments_count"];
+        d.views_count = (int) [shot objectForKey:@"views_count"];
+        d.url = [NSURL URLWithString:[shot objectForKey:@"url"]];
+        d.shotURL = [NSURL URLWithString:[shot objectForKey:@"image_url"]];
+        
+        [self.dribbbleShotsArray addObject:d];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,14 +72,14 @@
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.dribbbleShotsArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -61,9 +87,31 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
+    DribbbleShot *shot = self.dribbbleShotsArray[indexPath.row];
+    
+    NSData *imageBuffer = [NSData dataWithContentsOfURL:shot.shotURL];
+    
+    UIImage *image = [UIImage imageWithData:imageBuffer];
+    
+    
+    
+    cell.imageView.image = image;
+    cell.textLabel.text = shot.title;
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60;
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"showDribbbleShot"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];        
+        DribbbleShot *shot = self.dribbbleShotsArray[indexPath.row];
+        [segue.destinationViewController setShotURL: shot.url];
+    }
 }
 
 /*

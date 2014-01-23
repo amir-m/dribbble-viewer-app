@@ -10,4 +10,17 @@
 
 @implementation DribbbleShot
 
+- (id) initWithTitle:(NSString *)_title {
+    self = [super init];
+    
+    if (self) {
+        self.title = _title;
+    }
+    return self;
+}
+
++ (id) dribbbleShotWithTitle:(NSString *) t {
+    return [[self alloc] initWithTitle:t];
+}
+
 @end
